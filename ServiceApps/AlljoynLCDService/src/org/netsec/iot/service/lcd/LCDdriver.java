@@ -13,17 +13,17 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.lcd;
+package org.netsec.iot.service.lcd;
 
 import com.pi4j.wiringpi.*;
 
-class LcdDriver {
+class LCDdriver {
 
     private int _LCDAddr;
     private int _BLEN;
     private int _fd;
 
-    public LcdDriver() {
+    public LCDdriver() {
         _LCDAddr = 0x27; 
         _BLEN    = 1;
         _fd      = I2C.wiringPiI2CSetup(_LCDAddr);

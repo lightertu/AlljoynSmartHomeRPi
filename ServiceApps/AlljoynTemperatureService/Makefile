@@ -23,4 +23,4 @@ clean:
 	mvn clean
 
 sync:
-	rsync $(RSYNC_FLAG) --exclude-from=./.git/ $(HOSTDIR) $(REMOTE_ADDR):$(REMOTEDIR)
+	rsync $(RSYNC_FLAG) $(HOSTDIR) $(REMOTE_ADDR):$(REMOTEDIR)

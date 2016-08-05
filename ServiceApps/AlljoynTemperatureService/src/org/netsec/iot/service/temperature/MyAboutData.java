@@ -13,7 +13,7 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.temperature;
+package org.netsec.iot.service.temperature;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,17 +48,13 @@ public class MyAboutData implements AboutDataListener {
         if ((language == null) || (language.length() == 0) || language.equalsIgnoreCase("en")) {
             aboutData.put("DeviceName", new Variant("Rui's Pi 2"));
             aboutData.put("AppName", new Variant("Temperature Service"));
-            aboutData.put("Manufacturer", new Variant(new String(
-                    "A mighty manufacturing company")));
+            aboutData.put("Manufacturer", new Variant(new String( "A mighty manufacturing company")));
             aboutData.put("Description",
                     new Variant( "Sample showing the about feature in a service application"));
         } else if (language.equalsIgnoreCase("es")) { // Spanish
-            aboutData.put("DeviceName", new Variant(new String(
-                    "Un nombre de dispositivo")));
-            aboutData.put("AppName", new Variant(
-                    new String("Un nombre de aplicación")));
-            aboutData.put("Manufacturer", new Variant(new String(
-                    "Una empresa de fabricación de poderosos")));
+            aboutData.put("DeviceName", new Variant(new String( "Un nombre de dispositivo")));
+            aboutData.put("AppName", new Variant( new String("Un nombre de aplicación")));
+            aboutData.put("Manufacturer", new Variant(new String( "Una empresa de fabricación de poderosos")));
             aboutData.put("Description",
                     new Variant( new String("Muestra que muestra la característica de sobre en una aplicación de servicio")));
         } else {

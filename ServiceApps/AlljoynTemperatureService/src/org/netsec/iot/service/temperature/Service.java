@@ -13,7 +13,7 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.temperature;
+package org.netsec.iot.service.temperature;
 
 import org.alljoyn.bus.AboutObj;
 import org.alljoyn.bus.BusAttachment;
@@ -38,8 +38,8 @@ public class Service {
     static int sessionId;
 
     /* bus object class */
-    public static class TemperatureService implements SampleInterface, BusObject {
-    	private TemperatureReader _tr = new TemperatureReader();
+    public static class TemperatureService implements TemperatureBusObjectInterface, BusObject {
+    	private TemperatureSensor _tr = new TemperatureSensor();
     	private double _absZero = -273.15;
         public String echo(String str) {
             return str;
@@ -68,7 +68,7 @@ public class Service {
 
         TemperatureService myTemperatureService = new TemperatureService();
 
-        status = mBus.registerBusObject(myTemperatureService, "/org/netsec/iot/temperatureService");
+        status = mBus.registerBusObject(myTemperatureService, "/org/netsec/iot/service/temperature");
         if (status != Status.OK) {
             return;
         }

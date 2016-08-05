@@ -13,18 +13,18 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.lcd;
+package org.netsec.iot.client.logichub;
 
 import org.alljoyn.bus.BusException;
 import org.alljoyn.bus.annotation.BusInterface;
 import org.alljoyn.bus.annotation.BusMethod;
 
-@BusInterface (name = "org.netsec.iot.lcdService", announced="true")
-public interface SampleInterface {
+@BusInterface (name = "org.netsec.iot.service.temperature")
+public interface TemperatureInterface {
 
     @BusMethod(name = "Echo")
-    String echo(String str) throws BusException;
+    public String echo(String str) throws BusException;
 
-    @BusMethod(name = "Display")
-    void display(int x, int y, String message);
+    @BusMethod(name = "GetTemperature")
+    public double getTemperature() throws BusException;
 }

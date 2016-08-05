@@ -13,19 +13,18 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.temperature;
+package org.netsec.iot.service.lcd;
 
 import org.alljoyn.bus.BusException;
 import org.alljoyn.bus.annotation.BusInterface;
 import org.alljoyn.bus.annotation.BusMethod;
-import java.io.FileNotFoundException;
 
-@BusInterface (name = "org.netsec.iot.temperatureService", announced="true")
-public interface SampleInterface {
+@BusInterface (name = "org.netsec.iot.service.lcd", announced="true")
+public interface LCDinterface {
 
     @BusMethod(name = "Echo")
-    public String echo(String str) throws BusException;
+    String echo(String str) throws BusException;
 
-    @BusMethod(name = "GetTemperature")
-    public double getTemperature() throws BusException, FileNotFoundException;
+    @BusMethod(name = "Display")
+    void display(int x, int y, String message);
 }

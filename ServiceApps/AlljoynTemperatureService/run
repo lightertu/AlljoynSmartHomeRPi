@@ -13,4 +13,4 @@
 #    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 #    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 export LD_LIBRARY_PATH=~/SDKs/Alljoyn/alljoyn/core/alljoyn/alljoyn_java/bin/libs
-mvn exec:java -Dexec.mainClass="org.netsec.iot.temperature.Service"
+mvn exec:java -Dexec.mainClass="org.netsec.iot.service.temperature.Service"

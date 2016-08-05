@@ -13,7 +13,7 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.temperature;
+package org.netsec.iot.service.temperature;
 
 import java.io.File;
 import java.io.InputStreamReader;
@@ -23,10 +23,10 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-public class TemperatureReader {
+public class TemperatureSensor {
 	private String ds18b20 = "";
 		
-	public TemperatureReader() {
+	public TemperatureSensor() {
 		init();
 	}
 

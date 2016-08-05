@@ -13,7 +13,7 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.lcd;
+package org.netsec.iot.service.lcd;
 
 import org.alljoyn.bus.AboutObj;
 import org.alljoyn.bus.BusAttachment;
@@ -37,8 +37,8 @@ public class Service {
     static int sessionId;
 
     /* bus object class */
-    public static class LCDService implements SampleInterface, BusObject {
-        private LcdDriver _lcd = new LcdDriver();
+    public static class LCDService implements LCDinterface, BusObject {
+        private LCDdriver _lcd = new LCDdriver();
 
         public String echo(String str) {
             return str;
@@ -61,7 +61,7 @@ public class Service {
 
         LCDService lcdService = new LCDService();
 
-        status = mBus.registerBusObject(lcdService, "/org/netsec/iot/lcdService");
+        status = mBus.registerBusObject(lcdService, "/org/netsec/iot/service/lcd");
         if (status != Status.OK) {
             return;
         }

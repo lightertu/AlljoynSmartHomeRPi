@@ -13,7 +13,7 @@
  *    ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  *    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-package org.netsec.iot.logichub;
+package org.netsec.iot.client.logichub;
 
 import java.util.Map;
 import java.lang.Thread;
@@ -124,7 +124,7 @@ public class Client {
 
         public void announced(String busName, int version, short port, AboutObjectDescription[] objectDescriptions, Map<String, Variant> aboutData) {
 
-            /* ================== =print bus messages ==================== */
+            /* ===================== print bus messages ================== */
             printBusMessage(busName, version, port, objectDescriptions, aboutData);
             /* =========================================================== */
 
@@ -153,10 +153,12 @@ public class Client {
                     for(AboutObjectDescription o : aod) {
                         System.out.println("\t" + o.path);
                         switch (o.path)  {
+
+
                             /* register one bus temperature */
-                            case("/org/netsec/iot/temperatureService"):
+                            case("/org/netsec/iot/service/temperature"):
                                 temperatureProxyObject =  mBus.getProxyBusObject(busName,
-                                        "/org/netsec/iot/temperatureService",
+                                        o.path,
                                         sessionId.value,
                                         new Class<?>[] { TemperatureInterface.class});
 
@@ -164,16 +166,18 @@ public class Client {
                                 isTemperatureJoined = true;
                                 break;
 
+
                             /* register lcd bus object */
-                            case("/org/netsec/iot/lcdService"):
+                            case("/org/netsec/iot/service/lcd"):
                                 lcdProxyObject =  mBus.getProxyBusObject(busName,
-                                        "/org/netsec/iot/lcdService",
+                                        o.path,
                                         sessionId.value,
                                         new Class<?>[] { LCDInterface.class});
 
                                 lcdInterface = lcdProxyObject.getInterface(LCDInterface.class);
                                 isLCDJoined = true;
                                 break;
+
                         }
                         for (String s : o.interfaces) {
                             System.out.println("\t\t" + s);
@@ -204,14 +208,14 @@ public class Client {
         MyAboutListenser mAboutListener = new MyAboutListenser();
         mBus.registerAboutListener(mAboutListener);
 
-        String ifaces[] = {"org.netsec.iot.*"};
+        String ifaces[] = {"org.netsec.iot.service.*"};
         status = mBus.whoImplements(ifaces);
 
         if (status != Status.OK) {
             return;
         }
 
-        System.out.println("BusAttachment.whoImplements successful " + "com.example.about.feature.interface.sample");
+        System.out.println("BusAttachment.whoImplements successful " + "org.netsec.iot.service.*");
 
         while(!isTemperatureJoined || !isLCDJoined) {
             try {
