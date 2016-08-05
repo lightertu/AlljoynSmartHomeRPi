@@ -1,4 +1,4 @@
-# AlljoynSmartHomeRPi
+# Alljoyn Smart Home Using Raspberry Pi
 
 ###Hardware Requirements:
 * Raspberry Pis with wifi enabled
