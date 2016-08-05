@@ -1,6 +1,6 @@
 # AlljoynSmartHomeRPi
 
-Hardware Requirements:
+###Hardware Requirements:
 * Raspberry Pis with wifi enabled
 * Sensors:
   - Humiture Sensor Module    x 1
@@ -15,7 +15,18 @@ Hardware Requirements:
   - Active Buzzer Module      x 1
   - Motor                     x 1
 
-Software Requirements:
+* Others:
+  - Bread boards and jump wires
+
+###Software Requirements:
 * `Alljoyn SDK` with `Java` binding
+* `Make` build tool
 * `Maven` the `Java` build tool
-* `liballjoyn_java.so` file is located at ``
+* `liballjoyn_java.so` file is located at `~/SDKs/Alljoyn/alljoyn/core/alljoyn/alljoyn_java/bin/libs`
+
+###Run each Application
+* `make`
+* `./run`
+
+###To clean compiled binaries
+* `make clean`
