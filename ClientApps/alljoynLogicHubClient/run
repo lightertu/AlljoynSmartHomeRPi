@@ -1,0 +1,4 @@
+#!/bin/bash
+export LD_LIBRARY_PATH=~/SDKs/Alljoyn/alljoyn/core/alljoyn/alljoyn_java/bin/libs
+echo liballjoyn_java.so path is set at ~/SDKs/Alljoyn/alljoyn/core/alljoyn/alljoyn_java/bin/libs
+mvn exec:java -Dexec.mainClass="org.netsec.iot.logichub.Client"
