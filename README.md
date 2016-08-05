@@ -30,3 +30,6 @@
 
 ###To clean compiled binaries
 * `make clean`
+
+###Topology
+![Topology](./misc/Topology.PNG?raw=true "Topology")
